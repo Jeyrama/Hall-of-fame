@@ -39,3 +39,6 @@ Examples:
   top5.add(["S",5]).add(["T",7])
   top5.list --> ["T: 7","S: 5","A: 4","E: 3","I: 1"]
 */
+
+
+// Solution
