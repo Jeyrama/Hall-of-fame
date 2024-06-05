@@ -62,3 +62,28 @@ class HallOfFame {
 }
 
 // or
+
+class HallOfFame {
+  constructor(n, players = []) {
+    this.n = n;
+    this.players = players;
+  }
+
+  get list() {
+    const sortedPlayers = this.players.sort((p1, p2) => {
+      const scoreDiff = p2[1] - p1[1];
+      if (scoreDiff !== 0) return scoreDiff;
+      return (p1[0].toUpperCase() < p2[0].toUpperCase()) ? -1 : 1;
+    });
+
+    return Array(this.n).fill('').map((stub, i) => {
+      const player = sortedPlayers[i];
+      return player ? `${player[0]}: ${player[1]}` : stub;
+    });
+  }
+
+  add(player) {
+    (this.players || []).push(player);
+    return this;
+  }
+}
