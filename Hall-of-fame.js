@@ -60,3 +60,5 @@ class HallOfFame {
       return this;
   }
 }
+
+// or
