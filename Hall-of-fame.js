@@ -42,3 +42,21 @@ Examples:
 
 
 // Solution
+
+class HallOfFame {
+  constructor(size = 5, players = []) {
+      this.size = size;
+      this.scores = [];
+      players.forEach(player => this.add(player));
+  }
+  get list() {
+      return this.scores
+          .map(x => `${x[0]}: ${x[1]}`)
+          .concat(Array.from({length: this.size - this.scores.length}).map(_ => ''));
+  }
+  add(player) {
+      this.scores.push(player);
+      this.scores.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).splice(this.size);
+      return this;
+  }
+}
